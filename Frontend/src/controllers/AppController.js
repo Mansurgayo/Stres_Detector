@@ -4,8 +4,8 @@ export class AppController {
         this.config = {
             MAX_FILE_SIZE: 5 * 1024 * 1024,
             ALLOWED_TYPES: ['image/jpeg', 'image/jpg', 'image/png'],
-            // Gunakan environment variable untuk production, fallback ke proxy dev
-            API_URL: import.meta.env.VITE_API_URL || '/predict'
+            // Gunakan environment variable untuk production, fallback ke backend deploy
+            API_URL: import.meta.env.VITE_API_URL || 'https://stresdetector-production.up.railway.app/predict'
         };
     }
 

@@ -2,8 +2,8 @@ import Tesseract from 'tesseract.js';
 
 export class StressAnalysisModel {
     constructor() {
-        // Gunakan path relatif agar proxy Vite bekerja
-        this.API_URL = '/predict';
+        // Gunakan environment variable untuk production, fallback ke backend deploy
+        this.API_URL = import.meta.env.VITE_API_URL || 'https://stresdetector-production.up.railway.app/predict';
         this.selectedModel = 'binary';
         this.tesseractWorker = null;
         this.ocrConfig = {
