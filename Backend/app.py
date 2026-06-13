@@ -12,7 +12,12 @@ app = Flask(__name__)
 # Allow CORS for both production and local development
 CORS(app, resources={
     r"/predict": {
-        "origins": ["https://stress-chat-detector.vercel.app", "http://localhost:3002", "http://localhost:5173"],
+        "origins": [
+            "https://stres-detector.vercel.app",
+            "https://stress-chat-detector.vercel.app",
+            "http://localhost:3002",
+            "http://localhost:5173"
+        ],
         "methods": ["POST", "OPTIONS"],
         "allow_headers": "*"
     }
@@ -249,7 +254,12 @@ def delete_log(log_id):
 def add_cors_headers(response):
     # Allow localhost for development
     origin = request.headers.get('Origin', '')
-    allowed_origins = ['https://stress-chat-detector.vercel.app', 'http://localhost:3002', 'http://localhost:5173']
+    allowed_origins = [
+        'https://stres-detector.vercel.app',
+        'https://stress-chat-detector.vercel.app',
+        'http://localhost:3002',
+        'http://localhost:5173'
+    ]
     if origin in allowed_origins:
         response.headers.add('Access-Control-Allow-Origin', origin)
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
